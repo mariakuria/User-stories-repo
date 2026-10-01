@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Transaction History</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="page-header">
+      <h1>Transaction History</h1>
+      <p class="subtitle">Search by description, category, amount or date.</p>
+    </header>
+
+    <!-- Search bar (stories 1-4, 7-10, 14) -->
+    <form id="search-form" class="search" role="search" autocomplete="off">
+      <div class="search-field">
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Search transactions…"
+          aria-label="Search transactions"
+          aria-autocomplete="list"
+          aria-controls="suggestions"
+          aria-expanded="false"
+        />
+        <button id="search-button" type="submit" class="search-icon" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+            <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <ul id="suggestions" class="suggestions" role="listbox" hidden></ul>
+    </form>
+
+    <!-- Results header (stories 11-13) -->
+    <div id="results-bar" class="results-bar" hidden>
+      <span id="results-label"></span>
+      <button id="clear-button" type="button" class="link-button">Clear search</button>
+    </div>
+
+    <!-- Transaction list / empty state (stories 13, 15, 16) -->
+    <section aria-live="polite">
+      <ul id="transaction-list" class="transactions"></ul>
+      <div id="empty-state" class="empty-state" hidden>
+        <div class="empty-icon" aria-hidden="true">🔍</div>
+        <h2>No transactions found</h2>
+        <p id="empty-message"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
